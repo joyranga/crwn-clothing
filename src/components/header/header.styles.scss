@@ -1,0 +1,11 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 80px;
+    padding-right: 80px;
+    align-items: center;
+
+    .quicklink {
+        padding: 20px;
+    }
+}
