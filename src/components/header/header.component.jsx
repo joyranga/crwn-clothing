@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import crown from '../../assets/crown.svg';
 import './header.styles.scss';
-import {auth} from '../../firebase/firebase.utils'
+import { auth } from '../../firebase/firebase.utils'
 
-const Header = ({currentUser}) => {
+const Header = ({ currentUser }) => {
   return (
     <div className="header">
       <div className="logo">
@@ -15,9 +15,9 @@ const Header = ({currentUser}) => {
         <Link to="/CONTACT" className="quicklink">CONTACT</Link>
         {
           currentUser ?
-          <span className="quicklink" onClick = {() => auth.signOut()}> SIGNOUT </span>
-          :
-          <Link to="/signin" className="quicklink">SIGNIN</Link>
+            <span className="quicklink" onClick={() => auth.signOut()}> SIGNOUT </span>
+            :
+            <Link to="/signin" className="quicklink">SIGNIN</Link>
         }
       </div>
     </div>
