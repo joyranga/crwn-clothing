@@ -1,31 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import crown from '../../assets/crown.svg';
+import CartIcon from '../cart-icon/cart-icon.components';
+import CartDropdown from '../cart-dropdown/cart-dropdown.components';
 import './header.styles.scss';
 import { auth } from '../../firebase/firebase.utils';
 import { connect } from 'react-redux';
+import { ReactComponent as Logo } from '../../assets/crown.svg';
 
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, hidden }) => {
   return (
     <div className="header">
-      <div className="logo">
-        <img src={crown} alt="crown" />
-      </div>
-      <div>
-        <Link to="/shop" className="quicklink">SHOP</Link>
-        <Link to="/CONTACT" className="quicklink">CONTACT</Link>
+      <Link className='logo-container' to='/'>
+        <Logo className='logo' />
+      </Link>
+      <div className='options'>
+        <Link to="/shop" className="option">SHOP</Link>
+        <Link to="/CONTACT" className="option">CONTACT</Link>
         {
           currentUser ?
-            <span className="quicklink" onClick={() => auth.signOut()}> SIGNOUT </span>
+            <span className="option" onClick={() => auth.signOut()}> SIGNOUT </span>
             :
-            <Link to="/signin" className="quicklink">SIGNIN</Link>
+            <Link to="/signin" className="option">SIGNIN</Link>
         }
+        <CartIcon />
       </div>
+      {
+        hidden ? null : 
+        <CartDropdown />
+      }
+     
     </div>
   );
 }
 
-const mapStateToProps = (state) => {
-  return { currentUser: state.user.currentUser };
+const mapStateToProps = ({user: {currentUser}, cart: {hidden}}) => {
+  return { 
+    currentUser,
+    hidden
+  };
 }
 export default connect(mapStateToProps)(Header);

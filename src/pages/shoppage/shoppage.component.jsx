@@ -6,7 +6,7 @@ import './shoppage.styles.scss';
 
 const ShopPage = () => {
     return (
-        <div className="shoppage">  
+        <div>  
             {
                 SHOP_DATA.map(({ id, ...otherProps }) => (
                     <CollectionPreview key={id} {...otherProps} />
