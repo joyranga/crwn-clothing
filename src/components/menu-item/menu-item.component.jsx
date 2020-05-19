@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 const MenuItem = ({ title, imageUrl, size, linkUrl, history }) => {
     console.log(history);
     return (
-        <div className={`menu-item ${size}`} onClick={()=>{history.push("/shop")}}>
+        <div className={`menu-item ${size}`} onClick={()=>{history.push(linkUrl)}}>
             <div className='background-image' style={{
                 backgroundImage: `url(${imageUrl})`,
             }} ></div>

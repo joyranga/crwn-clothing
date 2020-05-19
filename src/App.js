@@ -14,10 +14,7 @@ import { setCurrentUser } from './redux/user/user.actions';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 import { selectCurrentUser } from './redux/user/user.selectors';
 
-
-
 import './App.css';
-
 
 class App extends React.Component {
 
@@ -50,7 +47,7 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage}></Route>
-          <Route exact path="/shop" component={ShopPage}></Route>
+          <Route path="/shop" component={ShopPage}></Route>
           <Route exact path="/checkout" component={CheckoutPage}></Route>
           <Route exact path="/signin"
             render={() => (
