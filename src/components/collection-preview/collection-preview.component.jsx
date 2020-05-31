@@ -9,7 +9,7 @@ import {
 } from "./collection-preview.styles";
 
 const CollectionPreview = ({ title, items }) => {
-  const element = (git 
+  const element = (
     <CollectionPreviewContainer>
       <TitleContainer>{title}</TitleContainer>
       <PreviewContainer>
