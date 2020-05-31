@@ -10,7 +10,6 @@ import CartIcon from "../cart-icon/cart-icon.component";
 import {
   HeaderContainer,
   LogoContainer,
-  OptionDiv,
   OptionLink,
   OptionsContainer,
 } from "./header.styles";
@@ -27,10 +26,14 @@ const Header = ({ currentUser, hidden }) => {
           CONTACT
         </OptionLink>
         {currentUser ? (
-          <OptionDiv className="option" onClick={() => auth.signOut()}>
+          <OptionLink
+            as="div"
+            className="option"
+            onClick={() => auth.signOut()}
+          >
             {" "}
             SIGNOUT{" "}
-          </OptionDiv>
+          </OptionLink>
         ) : (
           <OptionLink to="/signin" className="option">
             SIGNIN
